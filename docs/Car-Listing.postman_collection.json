@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "91eab422-4c26-403c-92bc-e0b7b7a75d95",
+		"name": "Car-Listing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UploadCSV",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "tevHVE1qR/car_listing.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload_csv/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload_csv",
+						"1"
+					],
+					"query": [
+						{
+							"key": "dealer_id",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search With Filters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search?model=a180&make=mercedes&year=2016",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "model",
+							"value": "a180"
+						},
+						{
+							"key": "make",
+							"value": "mercedes"
+						},
+						{
+							"key": "year",
+							"value": "2016"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicle Listing",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dealerId\": 666,\n    \"vehicles\": [\n        {\n            \"code\": \"123\",\n            \"make\": \"tesla\",\n            \"model\": \"a180\",\n            \"kw\": 123,\n            \"year\": 2014,\n            \"color\": \"black\",\n            \"price\": 15950\n        },\n        {\n            \"code\": \"4546\",\n            \"make\": \"buggati\",\n            \"model\": \"a3\",\n            \"kw\": 111,\n            \"year\": 2016,\n            \"color\": \"white\",\n            \"price\": 17210\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vehicle_listing",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vehicle_listing"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
